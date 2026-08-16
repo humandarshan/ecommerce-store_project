@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Order Confirmed</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; background: #F6F5F0; color: #14171C; font-family: 'Segoe UI', Arial, sans-serif; }
+        .wrap { max-width: 420px; margin: 0 auto; padding: 100px 24px; text-align: center; }
+        .check { width: 56px; height: 56px; border-radius: 50%; background: #e4f0df; color: #4a7a3d; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.6rem; }
+        h1 { font-size: 1.6rem; margin: 0 0 8px; }
+        p { color: #666; font-size: 0.9rem; margin: 4px 0; }
+        .btn { display: inline-block; margin-top: 24px; padding: 12px 28px; background: #14171C; color: #fff; border-radius: 999px; text-decoration: none; }
+        .btn:hover { background: #2440E0; }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="check">✓</div>
+        <h1>Order placed!</h1>
+        <p>Order #{{ order_number }}</p>
+        <p>Thank you{% if name %}, {{ name }}{% endif %} — a confirmation would be sent to your email.</p>
+        <a href="{% url 'home' %}" class="btn">Continue Shopping</a>
+    </div>
+</body>
+</html>

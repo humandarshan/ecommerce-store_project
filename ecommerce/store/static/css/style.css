@@ -1,0 +1,74 @@
+.navbar{
+    background:#222;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-size:18px;
+}
+
+.navbar a:hover{
+    color:yellow;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f5f5f5;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+}
+
+nav h1 {
+    display: inline;
+    margin-right: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+h2 {
+    color: darkblue;
+}
+
+ul {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+}
+.product {
+    background: white;
+    width: 250px;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 2px 2px 10px gray;
+}
+
+button {
+    background: green;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkgreen;
+}

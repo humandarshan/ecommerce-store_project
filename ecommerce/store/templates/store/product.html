@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ product.name }}</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; background: #F6F5F0; color: #14171C; font-family: 'Segoe UI', Arial, sans-serif; }
+        header { display: flex; align-items: center; justify-content: space-between; padding: 18px 32px; background: #fff; border-bottom: 1px solid rgba(20,23,28,0.1); }
+        header .logo { font-size: 1.3rem; font-weight: 700; }
+        header nav a { margin-left: 22px; color: #14171C; text-decoration: none; font-size: 0.9rem; }
+        .wrap { max-width: 600px; margin: 0 auto; padding: 40px 24px 60px; }
+        .back { color: #2440E0; text-decoration: none; font-size: 0.85rem; }
+        .card { background: #fff; border-radius: 16px; padding: 28px; margin-top: 20px; box-shadow: 0 2px 10px rgba(20,23,28,0.06); }
+        .card img { width: 100%; border-radius: 12px; margin-bottom: 20px; }
+        .card h1 { margin: 0 0 8px; font-size: 1.6rem; }
+        .card .price { font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; }
+        .card button { padding: 12px 28px; background: #14171C; color: #fff; border: none; border-radius: 999px; cursor: pointer; font-size: 0.9rem; }
+        .card button:hover { background: #2440E0; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🛒 My E-commerce Store</div>
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'cart' %}">Cart</a>
+        </nav>
+    </header>
+    <div class="wrap">
+        <a href="{% url 'home' %}" class="back">← Back to shop</a>
+        <div class="card">
+            {% if product.image %}
+            <img src="{{ product.image }}" alt="{{ product.name }}">
+            {% endif %}
+            <h1>{{ product.name }}</h1>
+            <p class="price">₹{{ product.price }}</p>
+            <form method="post" action="{% url 'add_to_cart' product.id %}">
+                {% csrf_token %}
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

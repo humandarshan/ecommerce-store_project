@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; background: #F6F5F0; color: #14171C; font-family: 'Segoe UI', Arial, sans-serif; }
+        header { display: flex; align-items: center; justify-content: space-between; padding: 18px 32px; background: #fff; border-bottom: 1px solid rgba(20,23,28,0.1); }
+        header .logo { font-size: 1.3rem; font-weight: 700; }
+        .wrap { max-width: 480px; margin: 0 auto; padding: 40px 24px 60px; }
+        h1 { font-size: 1.6rem; margin: 0 0 20px; }
+        .summary-box { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 24px; }
+        .line { display: flex; justify-content: space-between; padding: 4px 0; font-size: 0.9rem; }
+        .line.total { border-top: 1px solid rgba(20,23,28,0.15); margin-top: 8px; padding-top: 8px; font-weight: 700; }
+        .checkout-form input { width: 100%; padding: 12px 14px; margin-bottom: 14px; border: 1px solid rgba(20,23,28,0.2); border-radius: 10px; font-size: 0.9rem; }
+        .place-order { width: 100%; padding: 13px 0; background: #14171C; color: #fff; border: none; border-radius: 999px; font-size: 0.95rem; cursor: pointer; }
+        .place-order:hover { background: #2440E0; }
+        .note { text-align: center; font-size: 0.75rem; color: #888; margin-top: 12px; }
+    </style>
+</head>
+<body>
+    <header><div class="logo">🛒 My E-commerce Store</div></header>
+    <div class="wrap">
+        <h1>Checkout</h1>
+        <div class="summary-box">
+            {% for product in products %}
+            <div class="line"><span>{{ product.name }} × {{ product.qty }}</span><span>₹{{ product.subtotal }}</span></div>
+            {% endfor %}
+            <div class="line total"><span>Total</span><span>₹{{ total }}</span></div>
+        </div>
+        <form method="post" class="checkout-form">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="address" placeholder="Shipping Address" required>
+            <button type="submit" class="place-order">Place Order</button>
+        </form>
+        <p class="note">Demo checkout — no real payment is processed.</p>
+    </div>
+</body>
+</html>
